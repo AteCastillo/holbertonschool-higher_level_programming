@@ -1,7 +1,6 @@
-#include "lists.h"
 #include <stdio.h>
-
-
+#include <stdlib.h>
+#include "lists.h"
 /**
  * insert_node - check the code for Holberton School students.
  * @head: doble pointer
@@ -12,48 +11,35 @@
 listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *tmp = *head;
-	listint_t *duplicate;
+	listint_t *newnode = malloc(sizeof(listint_t));
 
-	if (head == NULL)
+	if (newnode == NULL)
 		return (NULL);
 
-	if (*(head->n) == number)
+	newnode->n = number;
+
+	if (tmp == NULL || tmp->n >= number) /*to add head or if head->n is
+					      greater than number*/
 	{
-		add_nodeint(head, number);
-		return (*head);
+		newnode->next = tmp->next;
+		tmp = newnode;
+		return (newnode);
 	}
+
 	while (tmp != NULL)
 	{
-		duplicate = tmp;
+		if (tmp->next == NULL)
+		{
+			return (add_nodeint_end(head, number)); /*head because
+						    it give a doble pointer*/
+		}
+		if (number <= tmp->next->n)
+		{
+			newnode->next = tmp->next;
+			tmp->next = newnode;
+			return (newnode);
+		}
 		tmp = tmp->next;
-		if (tmp->n > number)
-			add_nodeint(duplicate, number);
-		else
-			duplicate = duplicate->next;
 	}
-	return (duplicate);
-}
-
-/**
- * add_nodeint - check the code for Holberton School students.
- * @head: pointer to pointer to the list's head
- * @n: interger received
- * Return: Always 0.
- */
-
-listint_t *add_nodeint(listint_t **head, const int n)
-{
-
-	listint_t *newhead;
-
-	if (head == NULL)
-		return (0);
-
-	newhead = malloc(sizeof(listint_t));
-	if (newhead == NULL)
-		return (NULL);
-	newhead->n = n;
-	newhead->next = *head;
-	*head = newhead;
-	return (newhead);
+	return(NULL);
 }
