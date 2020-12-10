@@ -17,12 +17,13 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 
 	newnode->n = number;
-
+	newnode->next = NULL;
+	
 	if (tmp == NULL || tmp->n >= number) /*to add head or if head->n is
 					      greater than number*/
 	{
-		newnode->next = tmp->next;
-		tmp = newnode;
+		newnode->next = tmp;
+		*head = newnode;
 		return (newnode);
 	}
 
@@ -31,9 +32,9 @@ listint_t *insert_node(listint_t **head, int number)
 		if (tmp->next == NULL)
 		{
 			return (add_nodeint_end(head, number)); /*head because
-						    it give a doble pointer*/
+						    it gives a doble pointer*/
 		}
-		if (number <= tmp->next->n)
+		if (number >= tmp->n && number <= tmp->next->n)
 		{
 			newnode->next = tmp->next;
 			tmp->next = newnode;
