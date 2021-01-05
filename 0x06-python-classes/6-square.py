@@ -4,9 +4,10 @@
 
 class Square:
     """New Class"""
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Function to instantiation with size"""
         self.__size = size
+        self.__position = position  
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
@@ -30,14 +31,24 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
 
+    @property
+    def position(self):
+        """to retrieve position"""
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        if len(self.__position) != 2 or value < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+
     def my_print(self):
         """to print the square"""
-        if self.size == 0:
+        if self.__size == 0:
             print()
         else:
-            for i in range(self.size):
-                for j in range(self.size):
-                    i += 1
-                    j += 1
-                    print("#", end='')
-                print()
+            print("\n" * self.__position[1], end="")
+            for i in range(self.__size):
+                print(" " * self.__position[0], end="")
+                for i in range(self.__size):
+                    print("#", end="")
+                print("")
