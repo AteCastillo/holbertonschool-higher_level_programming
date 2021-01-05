@@ -7,7 +7,7 @@ class Square:
     def __init__(self, size=0, position=(0, 0)):
         """Function to instantiation with size"""
         self.__size = size
-        self.__position = position  
+        self.__position = position
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
@@ -38,6 +38,7 @@ class Square:
 
     @position.setter
     def position(self, value):
+        """to set position"""
         if len(self.__position) != 2 or value < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
 
