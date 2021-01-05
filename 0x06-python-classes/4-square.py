@@ -8,9 +8,9 @@ class Square:
         """Function to instantiation with size"""
         self.__size = size
         if type(size) is not int:
-          raise TypeError("size must be an integer")
+            raise TypeError("size must be an integer")
         if size < 0:
-          raise ValueError("size must be >= 0")
+            raise ValueError("size must be >= 0")
 
     def area(self):
         """Returns the area of a square"""
@@ -20,6 +20,7 @@ class Square:
     def size(self):
         """to retrieve size"""
         return self.__size
+
     @size.setter
     def size(self, value):
         """to change size"""
