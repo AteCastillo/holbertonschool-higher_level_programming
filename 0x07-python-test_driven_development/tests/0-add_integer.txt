@@ -1,49 +1,102 @@
+Importing the function from the module:
 >>> add_integer = __import__("0-add_integer").add_integer
+
+Checking to add 2 ints:
 >>> add_integer(10, 9)
 19
+
+Checking to add a positive and a negative:
 >>> add_integer(10, -2)
 8
+
+Checking to add 2 negatives:
 >>> add_integer(-10, -2)
 -12
+
+Checking to add a float and an int:
 >>> add_integer(10, 1.2)
 11
+
+Checking to add an int and a float:
 >>> add_integer(10.5, 2)
 12
+
+Checking with one int:
 >>> add_integer(10)
 108
+
+Checking with None:
 >>> add_integer(None)
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
+
+Checking if empty:
 >>> add_integer()
 Traceback (most recent call last):
     ...
 TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Checking int with string:
 >>> add_integer(10, "atenea")
 Traceback (most recent call last):
     ...
 TypeError: b must be an integer
+
+Checking string:
 >>> add_integer("atenea")
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
+
+Checking syntax and int:
 >>> add_integer (5a, 2)
 Traceback (most recent call last):
     ...
 SyntaxError: invalid syntax
+
+Checking int and sintax:
 >>> add_integer (5, 2b)
 Traceback (most recent call last):
     ...
 SyntaxError: invalid syntax
+
+Checking for boolean:
 >>> add_integer(True)
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
+
+Checking for boolean and int:
 >>> add_integer(10, True)
 Traceback (most recent call last):
     ...
 TypeError: b must be an integer
+
+Checking for infinity:
 >>> add_integer(1e100000)
 Traceback (most recent call last):
     ...
 OverflowError: cannot convert float infinity to integer
+
+Checking with more than 2 args:
+>>> add_integer(10, 5, 3)
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+Checking for a list and an int:
+>>> add_integer([1, 2], 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+checking for a variable:
+>>> add_integer(a, 2)
+Traceback (most recent call last):
+    ...
+NameError: name 'a' is not defined
+
+Checking long long int:
+>>> add_integer(199999999999999999999999999999, 1)
+200000000000000000000000000000
