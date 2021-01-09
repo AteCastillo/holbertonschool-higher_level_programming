@@ -1,2 +1,70 @@
+Importing the function from the module:
 >>> print_square = __import__('4-print_square').print_square
->>> 
+
+Check with 2:
+>>> print_square(2)
+##
+##
+
+Checking with a negative number:
+>>> print_square(-2)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+
+Checking if receives nothing:
+>>> print_square()
+Traceback (most recent call last):
+    ...
+TypeError: print_square() missing 1 required positional argument: 'size'
+
+Checking if receives different from int:
+>>> print_square(2.3)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+Checking if list:
+>>> print_square([2])
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+Checking with negative float:
+>>> print_square(-2.3)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+Checking with string:
+>>> print_square("Atenea")
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+Checking with more than 1 value:
+>>> print_square(2, 3)
+Traceback (most recent call last):
+    ...
+TypeError: print_square() takes 1 positional argument but 2 were given
+
+Checking with 0 value:
+>>> print_square(0)
+
+Checking with variable
+>>> print_square(a)
+Traceback (most recent call last):
+    ...
+NameError: name 'a' is not defined
+
+Checking with boolean:
+>>> print_square(True)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+Checking for sintax:
+>>> print_square(5a)
+Traceback (most recent call last):
+    ...
+SyntaxError: invalid syntax
