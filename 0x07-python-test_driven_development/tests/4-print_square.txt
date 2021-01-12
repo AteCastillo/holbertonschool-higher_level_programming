@@ -1,6 +1,16 @@
 Importing the function from the module:
 >>> print_square = __import__('4-print_square').print_square
 
+Checking for module docstring:
+>>> m = __import__("0-add_integer").__doc__
+>>> len(m) > 1
+True
+
+Checking for function docstring:
+>>> f = __import__("0-add_integer").add_integer.__doc__
+>>> len(f) > 1
+True
+
 Check with 2:
 >>> print_square(2)
 ##

@@ -1,5 +1,15 @@
 >>> say_my_name = __import__("3-say_my_name").say_my_name
 
+Checking for module docstring:
+>>> m = __import__("0-add_integer").__doc__
+>>> len(m) > 1
+True
+
+Checking for function docstring:
+>>> f = __import__("0-add_integer").add_integer.__doc__
+>>> len(f) > 1
+True
+
 >>> say_my_name("Atenea", "Castillo")
 My name is Atenea Castillo
 
