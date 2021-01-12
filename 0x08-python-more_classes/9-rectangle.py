@@ -12,9 +12,11 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """new method"""
-        return Rectangle(size, size)
-
+        """return a new instance with width = height = size"""
+        width = size
+        height = size
+        return cls(width, height)
+        
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """static method"""
