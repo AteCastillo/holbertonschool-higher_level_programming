@@ -15,8 +15,8 @@ class Rectangle:
         """return a new instance with width = height = size"""
         width = size
         height = size
-        return cls(width, height)
-        
+        return Rectangle(width, height)
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """static method"""
