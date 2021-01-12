@@ -56,7 +56,7 @@ class Rectangle:
         return my_rectangle
     """ roberto """
     def __repr__(self):
-        return 'Rectangle({}, {})' % (self.__width, self.__height)
+        return 'Rectangle(%s, %s)' % (self.__width, self.__height)
     """ delete my balls """
     def __del__(self):
         print("Bye rectangle...")
