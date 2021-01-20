@@ -6,5 +6,10 @@
  */
 int is_palindrome(listint_t **head)
 {
+    listint_t auxtohead = NULL;
+    listint_t auxtotail = NULL;
+    int i = 0;
+
+
 
 }

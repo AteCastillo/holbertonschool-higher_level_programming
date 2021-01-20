@@ -15,7 +15,6 @@ Your code should not be executed when imported - by using __import__, like the e
 
 1. My first toolbox! mandatory
 Write a program that imports functions from the file calculator_1.py, does some Maths, and prints the result.
-
 Do not use the function print (with string format to display integers) more than 4 times
 You have to define:
 the value 10 to a variable a
