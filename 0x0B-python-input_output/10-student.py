@@ -18,7 +18,7 @@ class Student:
     def to_json(self, attrs=None):
 
         if attrs is not None:
-            new_dict = {}  
+            new_dict = {}
             for obj in attrs:
                 if type(obj) is not str:
                     return self.__dict__
