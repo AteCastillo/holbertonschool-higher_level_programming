@@ -8,10 +8,19 @@ import pep8
 
 class TestCodeFormat(unittest.TestCase):
     """Test for pep8"""
+
     def test_pep8_conformance(self):
-        """Test that we conform to PEP8."""
+        '''Test that we conform to PEP8.'''
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['../../models/rectangle.py'])
+        self.assertEqual(result.total_errors, 1,
+                         "Found code style errors (and warnings).")
+
+    def test_pep8_conformance_test(self):
+        """Test that we conform to PEP8."""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(
+            ['../../tests/test_models/test_rectangle.py'])
         self.assertEqual(result.total_errors, 1,
                          "Found code style errors (and warnings).")
 
@@ -200,6 +209,18 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             """0 on height"""
             inst_up.update(id=1, height=0, width=1, x=1, y=1)
+
+    def test_display(self):
+            """test the display function"""
+            import io
+            import contextlib
+
+            inst = Rectangle(3, 4, 0, 0, 1)
+            with io.StringIO() as fd:
+                with contextlib.redirect_stdout(fd):
+                    inst.display()
+                    rec = fd.getvalue()
+            self.assertEqual(rec, '###\n###\n###\n###\n')
 
 if __name__ == '__main__':
     unittest.main()
