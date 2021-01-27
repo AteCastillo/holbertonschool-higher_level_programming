@@ -14,7 +14,7 @@ class Square(Rectangle):
     @property
     def size(self):
         """y Getter"""
-        return self.width
+        return self.width, self.height
 
     @size.setter
     def size(self, value):
@@ -22,6 +22,7 @@ class Square(Rectangle):
         """
         self.int_validator("width", value)
         self.width = value
+        self.height = value
 
     def __str__(self):
         '''Str method'''
