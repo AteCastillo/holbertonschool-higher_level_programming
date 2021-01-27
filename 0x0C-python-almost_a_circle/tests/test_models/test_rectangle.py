@@ -34,6 +34,12 @@ class TestRectangle(unittest.TestCase):
         t = "class" if inspect.isclass(item) else "function"
         item.__doc__ = "This {} intentionally has no documentation".format(t)
 
+    def test_square(self):
+        """to test with 4 parameters"""
+        rectangle = Rectangle(1, 2, 3, 4)
+        rectangle = Rectangle(1, 2)
+        rectangle = Rectangle(1, 2, 3)
+
     def test_inst_methods(self):
         """test methods"""
         test_inst = Rectangle(2, 3, 0, 0, 1)
@@ -59,6 +65,9 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             """negative y"""
             fail_inst = Rectangle(-2, 3, 0, -2, 0)
+        with self.assertRaises(ValueError):
+            """negative width"""
+            fail_inst = Rectangle(3, 2, 3, -4)
 
     def test_not_int(self):
         """test values without ints"""

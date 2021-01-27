@@ -47,6 +47,9 @@ class Test_Square(unittest.TestCase):
     def test_wrong_parameter(self):
         """Test for non int arguments in square"""
         with self.assertRaises(TypeError):
+            square = ("1")
+            square = (1, "1")
+            square = (1, 2, "1")
             square = Square([1, 2, 3, 4], "5")
             square = Square(1, None)
             square = Square()
@@ -80,6 +83,8 @@ class Test_Square(unittest.TestCase):
         """Test for size negative value"""
         with self.assertRaises(ValueError):
             square = Square(-2)
+            square = Square(1, -2)
+            square = Square(1, 2, -2)
 
     def test_0_square(self):
         """Test for 0 value in size"""

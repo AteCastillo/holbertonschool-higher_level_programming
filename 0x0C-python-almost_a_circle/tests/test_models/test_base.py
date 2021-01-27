@@ -43,12 +43,37 @@ class test_base(unittest.TestCase):
         """Test base, there is only one exception raised for None"""
         base = Base()
         self.assertEqual(base.id, 1)
+    
+    def test_wrong(self):
+        """Test base, there is only one exception raised for None"""
+        base = Base("[]")
+        self.assertEqual(base.id, 1)
+
+    def test_wrong(self):
+        """Test base, there is only one exception raised for None"""
         base2 = Base([1, 2, 3])
+    
+    def test_wrong(self):
+        """Test base, there is only one exception raised for None"""
         self.assertEqual(base2.id, [1, 2, 3])
+    
+    def test_wrong(self):
+        """Test base, there is only one exception raised for None"""
         base3 = Base("ate")
         self.assertEqual(base3.id, "ate")
+    
+    def test_wrong(self):
+        """Test base, there is only one exception raised for None"""
         base4 = Base(None)
         self.assertEqual(base4.id, 2)
+    
+    def test_wrong(self):
+        """Test base, there is only one exception raised for None"""
+        base4 = Base('[{ "id": 89 }]')
+        self.assertEqual(base4.id, 2)
+
+    def test_wrong(self):
+        """Test base, there is only one exception raised for None"""
         base5 = Base(True)
         self.assertEqual(base5.id, True)
 
