@@ -1,0 +1,1 @@
+-- uses a database to list all genres
