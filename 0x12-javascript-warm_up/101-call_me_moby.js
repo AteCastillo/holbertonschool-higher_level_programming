@@ -1,6 +1,6 @@
 #!/usr/local/bin/node
 function callMeMoby(x, func) {
-    for (var i)
+    for (x )
 }
 
 module.exports.callMeMoby = callMeMoby;
