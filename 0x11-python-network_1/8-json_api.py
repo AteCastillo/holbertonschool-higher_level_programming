@@ -4,7 +4,23 @@ http://0.0.0.0:5000/search_user with the letter as a parameter.
 '''
 
 import requests
-import sys
+from sys import argv
 
 
 if __name__ == "__main__":
+    if len(argv) == 1:
+        data = {"q": ""}
+    else:
+        url = "http://0.0.0.0:5000/search_user"
+        data = {"q": argv[1]}
+        response = requests.post(url, data=data)
+        try:
+            json_response = response.json()
+            if len(json_response) == 0:
+                print("No result")
+            else:
+                print("[{}] {}"
+                      .format(json_response.get("id"),
+                              json_response.get("name")))
+        except:
+            print("Not a valid JSON")
