@@ -7,6 +7,7 @@ variable found in the header of the response.
 import urllib.request
 import sys
 
-with urllib.request.urlopen(sys.argv[1]) as response:
-    information = response.info()
-print(information['X-Request-Id'])
+if __name__ == "__main__":
+    with urllib.request.urlopen(sys.argv[1]) as response:
+        http = response.getheader('X-Request-Id')
+    print(http)
