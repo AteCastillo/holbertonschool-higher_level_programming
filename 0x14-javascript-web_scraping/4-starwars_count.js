@@ -1,12 +1,15 @@
 #!/usr/bin/node
 const request = require('request');
-const api = process.argv[2].slice(0, -5) + "/people/18"
-
-request(api, function(err, response, body) {
-  let array = JSON.parse(body).films
-  console.log(array.length)
+const url = process.argv[2];
+request(url, function (error, response, body) {
+  const path = JSON.parse(body).results;
+  let count = 0;
+  for (let i = 0; i < path.length; i++) {
+    for (let j = 0; j < path[i].characters.length; j++) {
+      if (path[i].characters[j].endsWith('18/')) {
+        count++;
+      }
+    }
+  }
+  console.log(count);
 });
-
-
-
-
