@@ -1,15 +1,16 @@
 #!/usr/bin/node
 const request = require('request');
-const url = process.argv[2];
-request(url, function (error, response, body) {
-  const path = JSON.parse(body).results;
-  let count = 0;
-  for (let i = 0; i < path.length; i++) {
-    for (let j = 0; j < path[i].characters.length; j++) {
-      if (path[i].characters[j].endsWith('18/')) {
-        count++;
-      }
-    }
+let total = 0;
+request(process.argv[2], function (err, res, body) {
+  if (!err) {
+    const films = JSON.parse(body).results;
+    films.forEach(film => {
+      film.characters.forEach(elem => {
+        if (elem.endsWith('/18/')) {
+          total++;
+        }
+      });
+    });
+    return console.log(total);
   }
-  console.log(count);
 });
